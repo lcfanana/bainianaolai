@@ -1,9 +1,13 @@
 import time
-from base.base_driver import init_rivder
+
+from base.base_driver import init_driver
+from page.page import Page
+
 
 class TestLogin:
     def setup(self):
-        self.driver=init_rivder()
+        self.driver=init_driver()
+        self.page=Page(self.driver)
 
     def teardown(self):
         time.sleep(3)
@@ -11,4 +15,11 @@ class TestLogin:
 
 
     def test_login(self):
-        print("hello")
+        self.page.home.click_my()
+        self.page.register.click_login()
+        self.page.login.input_username("itheima_test")
+        self.page.login.input_password("itheima")
+        self.page.login.click_login()
+
+        assert self.page.me.get_nick_name_text() == "itheima_test", "登录后的用户名和输入的用户民不一致"
+

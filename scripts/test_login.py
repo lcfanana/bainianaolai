@@ -18,7 +18,7 @@ class TestLogin:
     # def test_init(self):
     #     self.page.home.login_if_not(self.page)
 
-    @pytest.mark.parametrize("args", analyze_file("login_data.yaml", "test_login"))
+    @pytest.mark.parametrize("args", analyze_file("all_data.yaml", "test_login"))
     def test_login(self, args):
 
         # 解析 yaml 的数据

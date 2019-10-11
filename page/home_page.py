@@ -8,10 +8,11 @@ class HomePage(BaseAction):
 
     # 我按钮
     my_button=By.ID,"com.yunmall.lc:id/tab_me"
+
     def click_my(self):
-        time.sleep(3)
         # 点击我按钮
         self.click(self.my_button)
+
     def login_if_not(self,page):
         # 判断登录状态
         self.click_my()
